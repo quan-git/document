@@ -330,3 +330,4 @@ db.collection('restaurants').drop( function(err, response) {
       console.log(response)
       callback();
    });
+```
