@@ -81,29 +81,9 @@ app.set("view engine", "ejs");
 # 编写启动脚本
 > 新建项目目录
 ```
-var express = require('express');
-var app = express();
-// 设定port变量，意为访问端口
-app.set('port', process.env.PORT || 3000);
+一般都使用模板
+$ express -e demo //-e是使用ejs
 
-// 设定views变量，意为视图存放的目录
-app.set('views', path.join(__dirname, 'views'));
-
-// 设定view engine变量，意为网页模板引擎
-app.set('view engine', 'jade');
-
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
-
-// 设定静态文件目录，比如本地文件
-// 目录为demo/public/images，访问
-// 网址则显示为http://localhost:3000/images
-app.use(express.static(path.join(__dirname, 'public')));
-app.listen(app.get('port'));
-上面代码set用于设置内部变量,use方法用于调用express中间件
 ```
 # 配置路由
 > 不使用ejs
