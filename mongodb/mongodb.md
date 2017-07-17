@@ -18,5 +18,24 @@ use 数据库名字  //如果这个数据库有就切换到这个数据库上如
 2. 查询
 ```
  db //查看当前所在的数据库 
- show dbs //查看所有的数据库
+ show dbs //查看所有的数据库注只有写入数据的数据库才会显示
  ```
+ 3. 删除
+ ```
+db.dropDatabase()
+```
+# 集合的操作
+1. 集合的创建
+```
+db.collectionName.insert();
+```
+2. 集合的删除
+```
+db.collectionName.drop();
+```
+# 文档的操作
+1. 插入文档
+```
+db.collectionName.insert({"name":"lisi"});
+db.collectionName.insert(try)   //try是一个保存键值对的变量
+ 
