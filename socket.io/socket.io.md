@@ -32,3 +32,31 @@ socket.io提供了三种默认事件(客户端和服务器端都有):
 1.socket.emit():向建立链接的客户端广播
 2.socket.broadcast.emit():向除去建立该连接的客户端所有客户广播
 3.io.sockets.emit():向所有客户端广播,等同于上面俩个和
+
+客户端:
+引用socket.io.js实现
+如果是与本地服务器链接var socket=io.connect('http://localhost')
+如果是与其他服务器链接var socket=io.connect(服务器地址);
+如果客户端和服务器位于同一个服务器上  var socket=io();
+```
+# demo
+```
+服务器:
+var io = require('socket.io').listen(80);
+
+io.sockets.on('connection', function (socket) {
+  socket.on('ferret', function (name, fn) {
+    fn('woot');
+  });
+});
+
+客户端:
+<script>
+  var socket = io(); // TIP: io() with no args does auto-discovery
+  socket.on('connect', function () { // 你可以避免监听“连接”，也可以直接听事件! 
+    socket.emit('ferret', 'tobi', function (data) {
+      console.log(data); // data will be 'woot'
+    });
+  });
+</script>
+```
