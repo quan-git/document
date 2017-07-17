@@ -57,3 +57,14 @@ arvind.save(function(err, data){
 User.findOne({}, function(err, data){
     console.log(data);
 })
+```
+# 原型
+```
+原理是一个json格式的类, 这个类包含一些关于文档的类型, 属性等信息. 原型可以作为文档的蓝图. 模型创建的时候需要原型. 
+所以在我们使用模型的属性前, 需要先定义它们的原型.
+
+例子:
+var bookSchema = mongoose.Schema({
+  name: String
+})
+
